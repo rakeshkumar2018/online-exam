@@ -1,0 +1,30 @@
+<div ng-if="isLoggedIn">
+	<b class="login-user">{{loggedInUser}}</b>
+	<div class='menu' ng-if="role=='admin'">
+		<a ng-click="fnMenuClick(1)" href="#!/home">HOME</a>
+		<a  ng-click="fnMenuClick(2)" href="#!/createSchool">CREATE SCHOOL</a>
+		<a  ng-click="fnMenuClick(3)" href="#!/schoolsList">SCHOOLS LIST</a>
+		<a ng-click="fnMenuClick(4)" href="#!/changePwd">CHANGE PWD</a>
+		<a ng-click="fnLogout()" >LOGOUT</a>
+	</div>
+
+	<div class='menu' ng-if="role=='student'">
+		<a href="#!/home">HOME</a>
+		<a href="#!/writeTest">WRITE TEST</a>
+		<a href="#!/result">RESULT</a>
+		<a href="#!/changePwd">CHANGE PWD</a>
+		<a ng-click="fnLogout()">LOGOUT</a>
+	</div>
+
+	<div class='menu' ng-if="role=='school'">
+		<a href="#!/home">HOME</a>
+		<a href="#!/class">CLASS</a>
+		<a href="#!/subject">SUBJECT</a>
+		<a href="#!/student">STUDENTS</a>
+		<a href="#!/test">TEST</a>
+		<a href="#!/questions">QUESTIONS</a>
+		<a href="#!/result">RESULT</a>
+		<a href="#!/changePwd">CHANGE PWD</a>
+		<a ng-click="fnLogout()">LOGOUT</a>
+	</div>
+</div>

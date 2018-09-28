@@ -1,0 +1,84 @@
+
+body {
+  padding: 0;
+}
+.content{
+    margin-bottom: 50px;
+}
+.time-left{
+    font-size: 30px;
+    position: fixed;
+    top: 100px;
+    right: 16px;
+}
+.login-user{
+     position: absolute;
+    top: 76px;
+}
+.test-que{
+    margin-bottom: 10px;
+}
+.menu{
+	text-align: right;
+	    line-height: 30px;
+    background: aliceblue;
+}
+.menu > a{
+	margin-right: 10px;
+    font-size: 12px;
+    font-style: italic;
+    letter-spacing: 2px;
+}
+#header{
+	 font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+    background: yellow;
+}
+.sub-menu{
+line-height: 30px;
+    background: blanchedalmond;
+}
+.sub-menu > a{
+    margin-left: 10px;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+#footer{
+	position: fixed;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    background: yellow;
+    font-style: italic;
+    font-weight: bold;
+}
+.home-heading{
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 50px;
+}
+.active{
+    color: red;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: underline;
+
+}
+.m-t-50{
+    margin-top: 50px;
+}
+.m-t-100{
+    margin-top: 100px;
+}
+
+.p-t-50{
+    margin-top: 50px;
+}
+.p-t-100{
+    margin-top: 100px;
+}
+
+
+

@@ -1,0 +1,190 @@
+<sub-menu-dir is-new="isAdd" fn-view="subjectsList()"></sub-menu-dir>
+
+<div ng-show='isAdd'>
+	<div class="form-group m-t-50" >
+	  	<div class="row">
+	  		<div class="col-sm-offset-4 col-sm-1 text-right">
+	  			Class:
+	  		</div>
+	  		<div class="col-sm-3">
+	  			<select ng-disabled='isEdit' ng-change="fnClassChange(postData.className)"  ng-model="postData.className" class="form-control">
+	  				<option value="">Select Class</option>
+	  				<option  ng-repeat="cls in classList" value={{cls.className}}>
+	  					{{cls.className}}
+	  				</option>
+	  			</select>
+	  		</div>
+	  	</div>
+	  	
+	  </div>
+	  <div class="form-group" >
+	  	<div class="row">
+	  		<div class="col-sm-offset-4 col-sm-1 text-right">
+	  			Subject:
+	  		</div>
+	  		<div class="col-sm-3">
+	  			<select ng-change="fnSubChange(postData.className,postData.subjectName)"  ng-disabled='isEdit' ng-model="postData.subjectName" class="form-control">
+	  				<option value="">Select Subject</option>
+	  				<option  ng-repeat="sub in subList" value={{sub.subjectName}}>
+	  					{{sub.subjectName}}
+	  				</option>
+	  			</select>
+	  		</div>
+	  	</div>
+	  	
+	  </div>
+
+	   <div class="form-group" >
+	  	<div class="row">
+	  		<div class="col-sm-offset-4 col-sm-1 text-right">
+	  			Test:
+	  		</div>
+	  		<div class="col-sm-3">
+	  			<select ng-disabled='isEdit' ng-model="postData.testName" class="form-control">
+	  				<option value="">Select Test</option>
+	  				<option  ng-repeat="test in selTestList" value={{test.testName}}>
+	  					{{test.testName}}
+	  				</option>
+	  			</select>
+	  		</div>
+	  	</div>
+	  	
+	  </div>
+
+	   <div class="form-group" >
+	  	<div class="row">
+	  		<div class="col-sm-offset-4 col-sm-1 text-right">
+	  			Question:
+	  		</div>
+	  		<div class="col-sm-3">
+	  			<textarea class="form-control" ng-model="postData.questionName"></textarea>
+	  		</div>
+	  	</div>
+	  	
+	  </div>
+
+	   <div class="form-group" >
+	  	<div class="row">
+	  		<div class="col-sm-offset-4 col-sm-1 text-right">
+	  			opt1:
+	  		</div>
+	  		<div class="col-sm-3">
+	  			<input type="text" class="form-control" ng-model="postData.opt1" />
+	  		</div>
+	  	</div>
+	  	
+	  </div>
+	   <div class="form-group" >
+	  	<div class="row">
+	  		<div class="col-sm-offset-4 col-sm-1 text-right">
+	  			opt2:
+	  		</div>
+	  		<div class="col-sm-3">
+	  			<input type="text" class="form-control" ng-model="postData.opt2" />
+	  		</div>
+	  	</div>
+	  	
+	  </div>
+	   <div class="form-group" >
+	  	<div class="row">
+	  		<div class="col-sm-offset-4 col-sm-1 text-right">
+	  			opt3:
+	  		</div>
+	  		<div class="col-sm-3">
+	  			<input type="text" class="form-control" ng-model="postData.opt3" />
+	  		</div>
+	  	</div>
+	  	
+	  </div>
+	   <div class="form-group" >
+	  	<div class="row">
+	  		<div class="col-sm-offset-4 col-sm-1 text-right">
+	  			opt4:
+	  		</div>
+	  		<div class="col-sm-3">
+	  			<input type="text" class="form-control" ng-model="postData.opt4" />
+	  		</div>
+	  	</div>
+	  	
+	  </div>
+
+	   <div class="form-group" >
+	  	<div class="row">
+	  		<div class="col-sm-offset-4 col-sm-1 text-right">
+	  			ans:
+	  		</div>
+	  		<div class="col-sm-3">
+	  			<input type="text" class="form-control" ng-model="postData.ans" />
+	  		</div>
+	  	</div>
+	  	
+	  </div>
+
+	   <div class="form-group" >
+	  	<div class="row">
+	  		<div class="col-sm-offset-4 col-sm-1 text-right">
+	  			Type:
+	  		</div>
+	  		<div class="col-sm-3">
+	  			<input ng-model="postData.queType" type="radio" value="M" name="qtype" >Multiple
+	  			<input ng-model="postData.queType" type="radio" value="S" name="qtype" >Sigle
+	  		</div>
+	  	</div>
+	  	
+	  </div>
+	  	<div class="form-group">
+	  	<div class="row">
+	  		<div class="col-sm-offset-5 col-sm-7">
+	  			<input ng-if="!isEdit" type="button" class="btn btn-primary" value="Submit" ng-click="fnInsertQue()">
+	  			<input ng-if="isEdit" type="button" class="btn btn-primary" value="Update" ng-click="fnUpdateQue()">
+	  		</div>
+	  	</div>
+</div>
+<div class="form-group">
+	  	<div class="row">
+	  		<div class="col-sm-12 text-center">
+	  				{{msg}}
+	  		</div>
+	  	</div>
+	  </div>
+
+</div>
+
+
+<div ng-show='!isAdd'>
+	<div class="form-group m-t-50">
+		<div class="row">
+			<div class="col-sm-3">
+	  			<select ng-disabled='isEdit' ng-change="fnClassChange(postData.className)"  ng-model="postData.className" class="form-control">
+	  				<option value="">Select Class</option>
+	  				<option  ng-repeat="cls in classList" value={{cls.className}}>
+	  					{{cls.className}}
+	  				</option>
+	  			</select>
+			</div>
+
+			<div class="col-sm-3">
+	  			<select ng-change="fnSubChange(postData.className,postData.subjectName)"  ng-disabled='isEdit' ng-model="postData.subjectName" class="form-control">
+	  				<option value="">Select Subject</option>
+	  				<option  ng-repeat="sub in subList" value={{sub.subjectName}}>
+	  					{{sub.subjectName}}
+	  				</option>
+	  			</select>
+			</div>
+
+			<div class="col-sm-3">
+	  			<select ng-disabled='isEdit' ng-model="postData.testName" class="form-control">
+	  				<option value="">Select Test</option>
+	  				<option  ng-repeat="test in selTestList" value={{test.testName}}>
+	  					{{test.testName}}
+	  				</option>
+	  			</select>
+			</div>
+			<div class="col-sm-3">
+				<input type='button' class="btn btn-primary" ng-click="fnGetQues()" value="GET QUE">
+			</div>
+		</div>
+	</div>
+
+	<table-dir headers="qh" keys="qk" data="qL" fn-edit="fnEditQue(do)" fn-delete="fnDeleteQue(do)"></table-dir>
+</div>

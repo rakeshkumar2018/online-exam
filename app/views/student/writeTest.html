@@ -1,0 +1,55 @@
+<div class="form-group m-t-50">
+		<div class="row">
+			<div class="col-sm-2">
+	  			<select ng-disabled='isEdit' ng-change="fnClassChange(postData.className)"  ng-model="postData.className" class="form-control">
+	  				<option value="">Select Class</option>
+	  				<option  ng-repeat="cls in classList" value={{cls.className}}>
+	  					{{cls.className}}
+	  				</option>
+	  			</select>
+			</div>
+
+			<div class="col-sm-2">
+	  			<select ng-change="fnSubChange(postData.className,postData.subjectName)"  ng-disabled='isEdit' ng-model="postData.subjectName" class="form-control">
+	  				<option value="">Select Subject</option>
+	  				<option  ng-repeat="sub in subList" value={{sub.subjectName}}>
+	  					{{sub.subjectName}}
+	  				</option>
+	  			</select>
+			</div>
+
+			<div class="col-sm-2">
+	  			<select ng-disabled='isEdit' ng-model="postData.testName" class="form-control">
+	  				<option value="">Select Test</option>
+	  				<option  ng-repeat="test in selTestList" value={{test.testName}}>
+	  					{{test.testName}}
+	  				</option>
+	  			</select>
+			</div>
+			<div class="col-sm-2">
+				<input type="text" placeholder="No of question" class="form-control" ng-model="postData.noOfQue">
+			</div>
+			<div class="col-sm-2">
+				<input type="text" placeholder="time" class="form-control" ng-model="postData.time">
+			</div>
+			<div class="col-sm-2">
+				<input type='button' class="btn btn-primary" ng-click="fnGetQues()" value="GET QUE" ng-show="isShow">
+			</div>
+		</div>
+	</div>
+
+
+<div ng-repeat="qObj in questions" class="test-que">
+		<div><b>{{$index+1}}. {{qObj.questionName}}</b></div>
+		<div><input ng-model="ansObj[qObj.id]" name="{{qObj.id}}" ng-if="qObj.queType=='S'" type="radio" value="A"><input ng-model="ansObj[qObj.id]['A']" type="checkbox" ng-if="qObj.queType=='M'">{{qObj.opt1}}</div>
+		<div><input ng-model="ansObj[qObj.id]" value="B"  name="{{qObj.id}}" type="radio" ng-if="qObj.queType=='S'"><input ng-model="ansObj[qObj.id]['B']"  type="checkbox" ng-if="qObj.queType=='M'">{{qObj.opt2}}</div>
+		<div><input ng-model="ansObj[qObj.id]" value='C' name="{{qObj.id}}" type="radio" ng-if="qObj.queType=='S'"><input ng-model="ansObj[qObj.id]['C']" type="checkbox" ng-if="qObj.queType=='M'">{{qObj.opt3}}</div>
+		<div><input ng-model="ansObj[qObj.id]" value='D' name="{{qObj.id}}" type="radio" ng-if="qObj.queType=='S'"><input ng-model="ansObj[qObj.id]['D']" type="checkbox" ng-if="qObj.queType=='M'">{{qObj.opt4}}</div>
+	</div>
+	<input type="button" value='submit' ng-click="fnSubmitTest()">
+
+	<div>
+		<b class="time-left">{{timeLeft}}</b>
+	</div>
+
+	 <nvd3 options="options" data="data"></nvd3>

@@ -1,0 +1,51 @@
+<sub-menu-dir is-new="isAdd" fn-view="subjectsList()"></sub-menu-dir>
+
+
+<div ng-show="isAdd">
+	  <div class="form-group m-t-50" >
+	  	<div class="row">
+	  		<div class="col-sm-offset-4 col-sm-1 text-right">
+	  			Class:
+	  		</div>
+	  		<div class="col-sm-3">
+	  			<select ng-model="postData.className" class="form-control">
+	  				<option  ng-repeat="cls in classList" value={{cls.className}}>
+	  					{{cls.className}}
+	  				</option>
+	  			</select>
+	  		</div>
+	  	</div>
+	  	
+	  </div>
+
+	  <div class="form-group" >
+	  	<div class="row">
+	  		<div class="col-sm-offset-4 col-sm-1 text-right">
+	  			Subject:
+	  		</div>
+	  		<div class="col-sm-3">
+	  			<input type="text" class="form-control" ng-model="postData.subjectName" />
+	  		</div>
+	  	</div>
+	  	
+	  </div>
+	  <div class="form-group">
+	  	<div class="row">
+	  		<div class="col-sm-offset-5 col-sm-7">
+	  			<input ng-if="!isEdit" type="button" class="btn btn-primary" value="Submit" ng-click="fnRegisterSubjects()">
+	  			<input ng-if="isEdit" type="button" class="btn btn-primary" value="Update" ng-click="fnUpdateSubject()">
+	  		</div>
+	  	</div>
+	  </div>
+	  <div class="form-group">
+	  	<div class="row">
+	  		<div class="col-sm-12 text-center">
+	  				{{msg}}
+	  		</div>
+	  	</div>
+	  </div>
+</div>
+
+<div ng-show="!isAdd">
+	<table-dir headers="h" keys="k" data="subList" fn-edit="fnEdit(do)" fn-delete="fnDelete(do)"></table-dir>
+</div>

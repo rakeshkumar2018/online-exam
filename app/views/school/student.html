@@ -1,0 +1,69 @@
+<sub-menu-dir is-new="isAdd" fn-view="studentsList()"></sub-menu-dir>
+
+
+<div ng-show="isAdd" class="m-t-50">
+<div class="container-fluid">
+<div class="row form-group">
+	<div class="col-sm-offset-4 col-sm-1">
+	CLASS:	</div>
+	<div class="col-sm-3">
+		<select ng-model="postData.className" class="form-control">
+	  				<option  ng-repeat="cls in classList" value={{cls.className}}>
+	  					{{cls.className}}
+	  				</option>
+	  			</select>
+	</div>
+</div>
+<div class="row form-group">
+	<div class="col-sm-offset-4 col-sm-1">
+	UID:	</div>
+	<div class="col-sm-3">
+		<input type="text" ng-disabled="isEdit" class="form-control" ng-model="postData.userName"/>
+	</div>
+</div>
+
+
+<div class="row form-group">
+	<div class="col-sm-offset-4 col-sm-1">
+	PWD:	</div>
+	<div class="col-sm-3">
+		<input type="text" class="form-control" ng-model='postData.password'/>
+	</div>
+</div>
+
+
+<div class="row form-group">
+	<div class="col-sm-offset-4 col-sm-1">
+	Email:	</div>
+	<div class="col-sm-3">
+		<input type="text" class="form-control" ng-model='postData.email'/>
+	</div>
+</div>
+
+<div class="row form-group">
+	<div class="col-sm-offset-4 col-sm-1">
+	Mobile:	</div>
+	<div class="col-sm-3">
+		<input type="text" class="form-control" ng-model='postData.mobile'/>
+	</div>
+</div>
+
+<div class="row form-group">
+	<div class="col-sm-offset-5 col-sm-7">
+		<input ng-if="!isEdit" type="button" class="btn btn-primary" value="Register" ng-click="fnRegister()"/>
+		<input ng-if='isEdit' type="button" class="btn btn-primary" value="Update" ng-click="fnUpdate()"/>
+	</div>
+</div>
+<div class="row form-group">
+	<div class="col-sm-12 text-center">
+		<b class="text-danger">{{msg}}</b>
+	</div>
+</div>
+</div>
+</div>
+</div>
+
+<div ng-show="!isAdd">
+	
+	<table-dir headers="h" keys="k" data="stdList" fn-edit="fnEdit(do)" fn-delete="fnDelete(do)"></table-dir>
+</div>

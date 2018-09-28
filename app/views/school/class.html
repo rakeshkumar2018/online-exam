@@ -1,0 +1,35 @@
+<sub-menu-dir is-new="isAdd" fn-view="classList()"></sub-menu-dir>
+
+
+<div ng-show="isAdd">
+	  <div class="form-group m-t-50" >
+	  	<div class="row">
+	  		<div class="col-sm-offset-4 col-sm-1 text-right">
+	  			Class:
+	  		</div>
+	  		<div class="col-sm-3">
+	  			<input type="text" class="form-control" ng-model="postData.className" />
+	  		</div>
+	  	</div>
+	  	
+	  </div>
+	  <div class="form-group">
+	  	<div class="row">
+	  		<div class="col-sm-offset-5 col-sm-7">
+	  			<input ng-show="!isEdit" type="button" class="btn btn-primary" value="Submit" ng-click="fnRegisterClass()">
+	  			<input ng-show="isEdit" type="button" class="btn btn-primary" value="Update" ng-click="fnUpdateClass()">
+	  		</div>
+	  	</div>
+	  </div>
+	  <div class="form-group">
+	  	<div class="row">
+	  		<div class="col-sm-12 text-center">
+	  				{{msg}}
+	  		</div>
+	  	</div>
+	  </div>
+</div>
+
+<div ng-show="!isAdd">
+	<table-dir headers="h" keys="k" data="cl" fn-edit="fnEdit(do)" fn-delete="fnDelete(do)"></table-dir>
+</div>
